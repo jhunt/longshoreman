@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>.-=[ l o n g s h o r e m a n ]=-.</title>
+<style type="text/css">
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong,
+sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{ margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+html, body { height: 100%; } body { background: #000; color: #fff; font-family: monospace; }
+#c { position: relative; width: 960px; height: 100%; margin: 0 auto; }
+label, #r { background: inherit; color: #0e0; font-family: inherit; font-size: 14pt; border: none; padding: 0; }
+label { width: 20px; display: inline; } #r { width: 940px; } #r:focus { outline: none; }
+*::-moz-selection { background: inherit; color: inherit; } *::selection { background: inherit; color: inherit; }
+#s::selection { background: #fff; color: #000; } #s::-moz-selection { background: #fff; color: #000; }
+#r::selection { background: #0e0; color: #000; } #r::-moz-selection { background: #0e0; color: #000; }
+#s { width: 100%; height: 90%; padding-top: 2.5%; overflow: auto; white-space: pre; }
+#l { width: 200px; line-height: 100%; padding-left: 200px; color: #555; display: none; font-size: 72pt; }
+.l #l { display: block; position: absolute; top: 30%; left: 0px; }
+.l #r, .l #s, .l label { opacity: 0.3; }
+#e { display: none; width: 100%; border: 8px solid #e00; color: #e00; background: #000; font-size: 18pt; text-align: center }
+#e .m { margin: 20px 20px; } #e #m { font-size: 22pt; }
+.e #r, .e #s, .e label { opacity: 0.3; }
+.e #e { display: block; position: absolute; top: 30%; left: 0px; }
+</style>
+</head>
+
+<body class="">
+<div id="c"><div id="s"></div><form><label for="r">#</label> <input autocomplete="off" type="text" id="r" /></form>
+	<div id="e"><div class="m">A FATAL ERROR HAS OCCURRED<br/><br/><div id="m"></div><br/><br/>GURU MEDITATION #810000015.000000000</div></div>
+<div id="l">loading...</div></div>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+var defaultColors = ['#000','#D00','#00CF12','#C2CB00','#3100CA','#E100C6','#00CBCB','#C7C7C7','#686868','#FF5959','#00FF6B','#FAFF5C','#775AFF','#FF47FE','#0FF','#FFF'];
+function term2html(text, options) {
+	options = options || {};
+	var colors = options.colors || defaultColors;
+
+	// EL – Erase in Line: CSI n K.
+	// Erases part of the line. If n is zero (or missing), clear from cursor to
+	// the end of the line. If n is one, clear from cursor to beginning of the
+	// line. If n is two, clear entire line. Cursor position does not change.
+	text = text.replace(/^.*\u001B\[[12]K/mg, '');
+
+	// CHA – Cursor Horizontal Absolute: CSI n G.
+	// Moves the cursor to column n.
+	text = text.replace(/^(.*)\u001B\[(\d+)G/mg, function(_, text, n) {
+		return text.slice(0, n);
+	});
+
+	// SGR – Select Graphic Rendition: CSI n m.
+	// Sets SGR parameters, including text color. After CSI can be zero or more
+	// parameters separated with ;. With no parameters, CSI m is treated as
+	// CSI 0 m (reset / normal), which is typical of most of the ANSI escape
+	// sequences.
+	var state = {
+		bg: -1,
+		fg: -1,
+		bold: false,
+		underline: false,
+		negative: false
+	};
+	text = text.replace(/\u001B\[([\d;]+)m([^\u001B]+)/g, function(_, n, text) {
+		// Update state according to SGR codes.
+		n.split(';').forEach(function(code) {
+			code = code | 0;
+			if (code === 0) {
+				state.bg = -1;
+				state.fg = -1;
+				state.bold = false;
+				state.underline = false;
+				state.negative = false;
+			} else if (code === 1) {
+				state.bold = true;
+			} else if (code === 4) {
+				state.underline = true;
+			} else if (code === 7) {
+				state.negative = true;
+			} else if (code === 21) {
+				state.bold = false;
+			} else if (code === 24) {
+				state.underline = false;
+			} else if (code === 27) {
+				state.negative = false;
+			} else if (code >= 30 && code <= 37) {
+				state.fg = code - 30;
+			} else if (code === 39) {
+				state.fg = -1;
+			} else if (code >= 40 && code <= 47) {
+				state.bg = code - 40;
+			} else if (code === 49) {
+				state.bg = -1;
+			} else if (code >= 90 && code <= 97) {
+				state.fg = code - 90 + 8;
+			} else if (code >= 100 && code <= 107) {
+				state.bg = code - 100 + 8;
+			}
+		});
+
+		// Convert color codes to CSS colors.
+		var bold = state.bold * 8;
+		var fg, bg;
+		if (state.negative) {
+			fg = state.bg | bold;
+			bg = state.fg;
+		} else {
+			fg = state.fg | bold;
+			bg = state.bg;
+		}
+		fg = colors[fg] || '';
+		bg = colors[bg] || '';
+
+		// Create style element.
+		var style = '';
+		if (bg) {
+			style += 'background-color:' + bg + ';';
+		}
+		if (fg) {
+			style += 'color:' + fg + ';';
+		}
+		if (bold) {
+			style += 'font-weight:bold;';
+		}
+		if (state.underline) {
+			style += 'text-decoration:underline';
+		}
+		var html = text.
+			replace(/&/g, '&amp;').
+			replace(/</g, '&lt;').
+			replace(/>/g, '&gt;');
+
+		// Return HTML for this section of formatted text.
+		if (style) {
+			return '<span style="' + style + '">' + html + '</span>';
+		} else {
+			return html;
+		}
+	});
+
+	return text.replace(/\u001B\[.*?[A-Za-z]/g, '');
+}
+function ok() { $('body').removeClass('l e'); }
+function err(s) { ok(); $('#m').html(s); $('body').addClass('e'); }
+function loading() { ok(); $('body').addClass('l'); }
+
+$(function() {
+  loading();
+  $.ajax({
+    type:  'GET',
+    url:   '/ping',
+    error: function() {
+      err("failed to ping server<br/>not sure we're talking to the right backend...");
+    },
+    success: function(t) {
+      ok();
+      if (t != "pong") {
+          err("/ping did not properly pong back<br/>not sure we're talking to the right backend...");
+          return;
+      }
+      $('#r').focus();
+      $('#s').html(term2html("\n\n"+
+              "\u001b[1;30m"+
+              "##        #######  ##    ##  ######    ######  ##     ##  #######  ########  ######## ##     ##    ###    ##    ##\n"+
+              "##       ##     ## ###   ## ##    ##  ##    ## ##     ## ##     ## ##     ## ##       ###   ###   ## ##   ###   ##\n"+
+              "##       ##     ## ####  ## ##        ##       ##     ## ##     ## ##     ## ##       #### ####  ##   ##  ####  ##\n"+
+              "##       ##     ## ## ## ## ##   ####  ######  ######### ##     ## ########  ######   ## ### ## ##     ## ## ## ##\n"+
+              "##       ##     ## ##  #### ##    ##        ## ##     ## ##     ## ##   ##   ##       ##     ## ######### ##  ####\n"+
+              "##       ##     ## ##   ### ##    ##  ##    ## ##     ## ##     ## ##    ##  ##       ##     ## ##     ## ##   ###\n"+
+              "########  #######  ##    ##  ######    ######  ##     ##  #######  ##     ## ######## ##     ## ##     ## ##    ##\n"+
+              "\u001b[0m"+
+              "\n\n\n"+
+              "Welcome to \u001b[1;32mLONGSHOREMAN\u001b[0m, an \u001b[1mINTERACTIVE\u001b[0m shell for exploring\n"+
+              "\u001b[1mDOCKER\u001b[0m containers, from the comfort of your web browser.\n"+
+              "\n"+
+              "Type a command below (at the \u001b[1;32m#\u001b[0m prompt) to run it inside of\n"+
+              "the \u001b[1;36mjhunt/sandbox\u001b[0m container, and see its output here.\n"+
+              "\n\n"+
+              "A few 'builtin' commands:\n"+
+              "\n"+
+              "   \u001b[1;31mdump\u001b[0m  Dump the images Dockerfile\n"+
+              "   \u001b[1;31mhelp\u001b[0m  Show this help message again\n"+
+              "\n\n"+
+              "Happy Hacking!\n"+
+              ""));
+      $('#c, body').click(function() {
+        if ($('body').hasClass('e')) {
+          $('body').removeClass('e'); $('#r').focus();
+        }
+      });
+      window.setInterval(function () {
+        t = $('#l').text();
+        $('#l').html(term2html(t == "loading..." ? "loading" : t + "."));
+      }, 1000);
+    },
+  });
+})
+check = function (uuid) {
+  $.ajax({
+    type: 'GET', url: '/output/'+uuid,
+    error: function(o) { err("GET /output/"+uuid+"<br/>HTTP "+o.status+" "+o.statusText+"<br/>"+o.responseText) },
+    success: function(t, s, o) {
+      if (o.status == 204) { loading(); window.setTimeout(function () { check(uuid) }, 200); return; }
+      $('#s').html(term2html(t)); ok();
+    }
+  })
+};
+$('form').submit(function (event) {
+  event.preventDefault();
+  $.ajax({
+    type: 'POST', url: '/run',
+    data: $('#r').val(),
+    error: function(o) { err("POST /run<br/>HTTP "+o.status+" "+o.statusText+"<br/>"+o.responseText) },
+    success: function(uuid) { window.setTimeout(function() { check(uuid) }, 200); }
+  });
+});
+
+</script>
+</body>
+</html>

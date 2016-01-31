@@ -1,0 +1,68 @@
+HINTS
+
+
+
+  These hints are meant to help you if you get stuck.
+
+
+
+
+  If you peek too soon, you're only hurting yourself.
+
+
+
+
+
+
+
+
+  1) You can run `go help` to see the list of available Go commands
+
+
+
+
+
+
+
+
+  2) `go help <tool> gives you even more information
+
+
+
+
+
+
+
+
+  3) You can find lots of package documentation at https://golang.org
+
+
+
+
+
+
+
+
+  4) The `io/ioutil` package has some useful functions for reading
+
+
+
+
+
+
+
+
+  5) You can `fmt.Fprintf()` to an `http.ResponseWriter`
+
+
+
+
+
+
+
+
+  6) IF YOU'RE REALLY STUCK ... check answer/server.go
+
+
+
+

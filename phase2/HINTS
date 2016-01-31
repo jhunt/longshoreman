@@ -1,0 +1,59 @@
+HINTS
+
+
+
+  These hints are meant to help you if you get stuck.
+
+
+
+
+  If you peek too soon, you're only hurting yourself.
+
+
+
+
+
+
+
+
+  1) structs are a great way of keeping track of related bits of data
+
+
+
+
+
+
+
+
+  2) The `github.com/pborman/uuid` library is super useful
+
+
+
+
+
+
+
+
+  3) String manipulation can be done with the `strings` library
+
+
+
+
+
+
+
+
+  4) You have to make channels before you can use them
+
+
+
+
+
+
+
+
+  6) IF YOU'RE REALLY STUCK ... check answer/server.go
+
+
+
+
