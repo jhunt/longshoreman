@@ -1,0 +1,50 @@
+HINTS
+
+
+
+  These hints are meant to help you if you get stuck.
+
+
+
+
+  If you peek too soon, you're only hurting yourself.
+
+
+
+
+
+
+
+
+  1) You can use the `make()` operator to create channels
+
+
+
+
+
+
+
+
+  2) Multiple goroutines can share a channel
+
+
+
+
+
+
+
+
+  3) Go lets you send values *and* pointers across channels
+
+
+
+
+
+
+
+
+  4) IF YOU'RE REALLY STUCK ... check answer/server.go
+
+
+
+
