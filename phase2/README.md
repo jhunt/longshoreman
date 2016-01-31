@@ -61,4 +61,4 @@ Objectives
 ----------
 
 Hopefully, by completing this phase, you'll gain an appreciation
-for Go's concurrency primitives (goroutines and channels)!
+for goroutines and concurrency.
