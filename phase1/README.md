@@ -25,7 +25,7 @@ output will be returned in the immediate response.
 
 The heavy lifting of actually running commands will be done by the
 `sandbox` library ([available here][sandbox]).  You'll want to use
-the **filefrog/sandbox** image:
+the **filefrog/sandbox** Docker image.
 
 Getting Started
 ---------------
