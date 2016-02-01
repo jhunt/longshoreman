@@ -32,11 +32,11 @@ Getting Started
 
 To get you started, there is a `server.go` template that contains
 a (very) short, but still functional webserver, running on port
-8080.  You should be able to run it:
+8184.  You should be able to run it:
 
     go run server.go
 
-And then visit http://localhost:8080 in your browser.
+And then visit http://localhost:8184 in your browser.
 
 Next Steps
 ----------

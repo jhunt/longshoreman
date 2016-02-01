@@ -46,7 +46,7 @@ into this directory.  Running it is the same as before:
 
     go run server.go
 
-And then visit http://localhost:8080 in your browser.
+And then visit http://localhost:8184 in your browser.
 
 Next Steps
 ----------
