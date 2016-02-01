@@ -61,7 +61,16 @@ HINTS
 
 
 
-  6) IF YOU'RE REALLY STUCK ... check answer/server.go
+  6) You can freely convert []byte arrays to strings, using string(b)
+
+
+
+
+
+
+
+
+  7) IF YOU'RE REALLY STUCK ... check answer/server.go
 
 
 
