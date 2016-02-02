@@ -15,3 +15,7 @@ build:
 
 clean:
 	rm -rf output-*/
+
+import:
+	vagrant box remove --force longshoreman || true
+	vagrant box add --name longshoreman boxen/longshoreman.box
