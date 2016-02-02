@@ -64,7 +64,7 @@
 		},
 		{
 			"type": "atlas",
-			"token": "{{env `atlas_token`}}",
+			"token": "{{user `atlas_token`}}",
 			"artifact": "jhunt/longshoreman",
 			"artifact_type": "vagrant.box",
 			"metadata": {
