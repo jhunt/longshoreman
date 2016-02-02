@@ -19,15 +19,10 @@ func main() {
 		}
 
 		b, _ := ioutil.ReadAll(r.Body)
-		_, output, err := sandbox.Run(sandbox.Options{
+		output := sandbox.Run(sandbox.Options{
 			Image:   "filefrog/sandbox",
 			Command: string(b),
 		})
-		if err != nil {
-			w.WriteHeader(500)
-			fmt.Fprintf(w, "failed: %s\n", err)
-			return
-		}
 		fmt.Fprintf(w, "%s", output)
 	})
 

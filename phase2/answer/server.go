@@ -37,7 +37,7 @@ func main() {
 		jobs[id.String()] = job
 
 		go func() {
-			_, output, _ := sandbox.Run(sandbox.Options{
+			output := sandbox.Run(sandbox.Options{
 				Image:   "filefrog/sandbox",
 				Command: string(job.Command),
 			})

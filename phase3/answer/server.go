@@ -18,11 +18,10 @@ type Job struct {
 func worker(in chan *Job) {
 	for {
 		job := <-in
-		_, output, _ := sandbox.Run(sandbox.Options{
+		job.Output = sandbox.Run(sandbox.Options{
 			Image:   "filefrog/sandbox",
 			Command: string(job.Command),
 		})
-		job.Output = output
 		job.Running = false
 	}
 }
