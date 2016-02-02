@@ -64,8 +64,8 @@ func main() {
 			return
 		}
 
-		l := strings.Split(r.URL.Path, "/")
-		if job, ok := jobs[l[2]]; ok {
+		id := strings.Split(r.URL.Path, "/")[2]
+		if job, ok := jobs[id]; ok {
 			if job.Running {
 				w.WriteHeader(204)
 				return
@@ -76,7 +76,7 @@ func main() {
 		}
 
 		w.WriteHeader(404)
-		fmt.Fprintf(w, "uuid %s not found", l[2])
+		fmt.Fprintf(w, "uuid %s not found", id)
 	})
 
 	http.Handle("/", http.FileServer(http.Dir("static")))
