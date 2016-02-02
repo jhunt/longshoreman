@@ -1,4 +1,11 @@
 #!/bin/bash
 
+tmpdir=$(mktemp -d /tmp/go.XXXXX)
+trap "rm -rf $tmpdir" EXIT QUIT INT TERM
+
+GOPATH=$tmpdir:$GOPATH
+go get github.com/jhunt/sandbox
+go get github.com/pborman/uuid
+
 cd $(dirname ${BASH_SOURCE[0]})
 go run ./answer/server.go
