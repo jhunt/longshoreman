@@ -57,8 +57,19 @@
 		}
 	],
 
-	"post-processors": [{
-		"type": "vagrant",
-		"output": "boxen/longshoreman.box"
-	}]
+	"post-processors": [
+		{
+			"type": "vagrant",
+			"output": "boxen/longshoreman.box"
+		},
+		{
+			"type": "atlas",
+			"token": "{{env `atlas_token`}}",
+			"artifact": "jhunt/longshoreman",
+			"artifact_type": "vagrant.box",
+			"metadata": {
+				"created_at": "{{timestamp}}"
+			}
+		}
+	]
 }
