@@ -180,12 +180,16 @@ $(function() {
               "\u001b[1mDOCKER\u001b[0m containers, from the comfort of your web browser.\n"+
               "\n"+
               "Type a command below (at the \u001b[1;32m#\u001b[0m prompt) to run it inside of\n"+
-              "the \u001b[1;36mjhunt/sandbox\u001b[0m container, and see its output here.\n"+
+              "the \u001b[1;36mfilefrog/sandbox\u001b[0m container, and see its output here.\n"+
               "\n\n"+
-              "A few 'builtin' commands:\n"+
+              "Some things to try:\n"+
               "\n"+
-              "   \u001b[1;31mdump\u001b[0m  Dump the images Dockerfile\n"+
-              "   \u001b[1;31mhelp\u001b[0m  Show this help message again\n"+
+              "   \u001b[1;33mls -alh\u001b[0m            List the top-level root directory\n"+
+              "   \u001b[1;33mls -alh --color\u001b[0m      (with color)\n"+
+              "   \u001b[1;33mcat /proc/cpuinfo\u001b[0m  Check out the CPU information\n"+
+              "   \u001b[1;33mps -aux\u001b[0m            See what processes are running\n"+
+              "   \u001b[1;33mtop -bn1\u001b[0m           Another view into the process table\n"+
+              "   \u001b[1;33mfortune | cowsay\u001b[0m   Let a cow tell you your fortune\n"+
               "\n\n"+
               "Happy Hacking!\n"+
               ""));
