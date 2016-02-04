@@ -26,11 +26,11 @@ Then, spin up the Vagrant machine (from this directory)
     vagrant up
 
 That may take a few minutes, as it installs a bunch of stuff
-you'll need.  Oncce it's up, you can SSH into it:
+you'll need. Oncce it's up, you can SSH into it:
 
     vagrant ssh
 
-This will drop you into a shell as the `vagrant` user.  In your
+This will drop you into a shell as the `vagrant` user. In your
 home directory, you'll see a `go/` directory (your `$GOPATH`), and
 multiple `phaseN` directories, one for each phase of this
 exercise.
@@ -59,7 +59,7 @@ Working Through The Exercises
 
 Each phase of the exercise is self-contained inside of its
 directory, including the static assets for the front-end web
-interface.  Inside each phase directory, you'll also find a
+interface. Inside each phase directory, you'll also find a
 README.md file that contains instructions for the phase, and a
 HINTS file for when you get stuck.
 
