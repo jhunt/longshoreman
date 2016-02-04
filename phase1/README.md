@@ -2,7 +2,7 @@ Longshoreman - Phase 1
 ======================
 
 In this iteration of the project, your primary goal is to get a
-simple web server up, using the power of Go and `net/http`.  It
+simple web server up, using the power of Go and `net/http`. It
 must implement the following REST API:
 
     C: GET /ping
@@ -10,7 +10,7 @@ must implement the following REST API:
        pong
 
 The `/ping` interface is used by the front-end to ensure that it
-is in fact talking to a Longshoreman REST API.  If the endpoint
+is in fact talking to a Longshoreman REST API. If the endpoint
 doesn't properly respond with the 4 characters p-o-n-g, the
 front-end code will balk.
 
@@ -23,16 +23,16 @@ The `/run` interface is used by the front-end to submit commands.
 In this phase, the commands will be run synchronously, and the
 output will be returned in the immediate response.
 
-The heavy lifting of actually running commands will be done by the
-`sandbox` library ([available here][sandbox]).  You'll want to use
-the **filefrog/sandbox** Docker image.
+The heavy lifting of actually running commands will be done by
+the `sandbox` library ([available here](https://github.com/jhunt/sandbox)).
+You'll want to use the **filefrog/sandbox** Docker image.
 
 Getting Started
 ---------------
 
 To get you started, there is a `server.go` template that contains
 a (very) short, but still functional webserver, running on port
-8184.  You should be able to run it:
+8184. You should be able to run it:
 
     go run server.go
 

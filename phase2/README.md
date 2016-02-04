@@ -2,9 +2,9 @@ Longshoreman - Phase 2
 ======================
 
 Now it's time to extend our webserver to utilize goroutines in a
-worker pool architecture.  Rather than have a `POST /run` block
+worker pool architecture. Rather than have a `POST /run` block
 waiting for the command to exit, we'll submit a job to our
-workers, and return an identifier to the client.  The client can
+workers, and return an identifier to the client. The client can
 then take that token and ask for the status of the command via a
 new `GET /output` endpoint.
 
@@ -42,7 +42,7 @@ Getting Started
 
 You are free to start with the `server.go` template, but you'll
 probably be better off copying your implementation from phase 1
-into this directory.  Running it is the same as before:
+into this directory. Running it is the same as before:
 
     go run server.go
 
