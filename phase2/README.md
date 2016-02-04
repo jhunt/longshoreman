@@ -40,9 +40,8 @@ a 200 OK (with the output) if the job has completed.
 Getting Started
 ---------------
 
-You are free to start with the `server.go` template, but you'll
-probably be better off copying your implementation from phase 1
-into this directory.  Running it is the same as before:
+The `server.go` template contains part of a working implementation
+from phase 1.  Running it is the same as before:
 
     go run server.go
 

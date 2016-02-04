@@ -1,4 +1,4 @@
-Longshoreman - Phase 2
+Longshoreman - Phase 3
 ======================
 
 We've got concurrency down pat, but we have a potential denial of
@@ -17,9 +17,8 @@ only creating a fixed number of such goroutines.
 Getting Started
 ---------------
 
-You are free to start with the `server.go` template, but you'll
-probably be better off copying your implementation from phase 1
-into this directory.  Running it is the same as before:
+The `server.go` template contains part of a working implementation
+from phase 2.  Running it is the same as before:
 
     go run server.go
 
