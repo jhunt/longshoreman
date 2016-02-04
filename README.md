@@ -57,7 +57,7 @@ then go visit http://localhost:8184 on your laptop.
 Working Through The Exercises
 -----------------------------
 
-Each phase of the exercise is self-contained inside of it's
+Each phase of the exercise is self-contained inside of its
 directory, including the static assets for the front-end web
 interface.  Inside each phase directory, you'll also find a
 README.md file that contains instructions for the phase, and a

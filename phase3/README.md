@@ -2,7 +2,7 @@ Longshoreman - Phase 2
 ======================
 
 We've got concurrency down pat, but we have a potential denial of
-service waiting in the wings; there is no upper bounds on the
+service waiting in the wings; there is no upper bound on the
 number of goroutines (and by extension, containers) our web API
 creates.  This is bad.
 
