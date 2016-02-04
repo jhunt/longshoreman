@@ -21,6 +21,8 @@ func worker(in chan *Job) {
 
 func main() {
 	jobs := make(map[string]*Job)
+
+	// We'll use this channel to communicate with out workers.
 	ch := make(chan *Job)
 
 	// Spin some worker goroutines
@@ -43,8 +45,8 @@ func main() {
 		id := uuid.NewRandom()
 		jobs[id.String()] = job
 
-		// Now that we have our new job, we need to somehow convey
-		// that job to one of our available workers
+		// Now that we have our new job, we need to somehow communicate
+		// the job details to one of our available workers
 
 		fmt.Fprintf(w, "%s", id)
 	})
